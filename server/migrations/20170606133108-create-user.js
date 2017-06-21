@@ -9,19 +9,26 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING,
       },
       firstName: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       lastName: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING,
       },
       password: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -31,13 +38,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      roleId: {
-        type: Sequelize.INTEGER,
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING,
         onDelete: 'CASCADE',
-        reference: {
+        references: {
           model: 'Roles',
-          key: 'id',
-          as: 'roleId',
+          key: 'title',
+          as: 'title'
         }
       }
     });
